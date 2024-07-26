@@ -13,13 +13,23 @@ export class BoardComponent implements OnInit {
     'in-progress': [],
     'finished': []
   };
+  showAddTaskPopup: boolean = false;
 
-  constructor(private taskService: TaskService) {
-    }  //fetch tasks based on their status.
+  constructor(private taskService: TaskService) { 
+  }  //fetch tasks based on their status.
 
   ngOnInit(): void {
+    this.loadTasks();
+  }
+
+  loadTasks(): void {
     this.tasks['todo'] = this.taskService.getTasksByStatus('todo');
     this.tasks['in-progress'] = this.taskService.getTasksByStatus('in-progress');
     this.tasks['finished'] = this.taskService.getTasksByStatus('finished');
+  }// ngOnInit is a lifecycle hook that Angular calls after the component has been initialized.
+
+  handleClose(): void {
+    this.showAddTaskPopup = false;
+    this.loadTasks(); // Refresh tasks after adding a new one
   }
-}// ngOnInit is a lifecycle hook that Angular calls after the component has been initialized.
+}

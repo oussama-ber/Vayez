@@ -5,15 +5,19 @@ import { Task } from './task.model';
   providedIn: 'root'
 })
 export class TaskService {
-  private tasks: Task[] = [
-    { id: '1', title: 'Task 1', description: 'Description 1', status: 'todo' },
-    { id: '2', title: 'Task 2', description: 'Description 2', status: 'in-progress' },
-    { id: '3', title: 'Task 3', description: 'Description 3', status: 'finished' }
-  ];
+  private tasks: Task[] = [];
+  private currentId: number = 0;
+
+  addTask(task: Task): void {
+    task.id = this.currentId.toString(); 
+    this.tasks.push(task);
+    this.currentId++;  
+  }
 
   getTasks(): Task[] {
     return this.tasks;
   }
+
   getTasksByStatus(status: 'todo' | 'in-progress' | 'finished'): Task[] {
     return this.tasks.filter(task => task.status === status);
   }

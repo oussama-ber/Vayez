@@ -1,0 +1,26 @@
+<div class="modal-overlay" (click)="onClose()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <form (ngSubmit)="addTask()">
+      <label>
+        Title:
+        <input [(ngModel)]="task.title" name="title" required>
+      </label>
+      <label>
+        Description:
+        <input [(ngModel)]="task.description" name="description" required>
+      </label>
+      <label>
+        Status:
+        <select [(ngModel)]="task.status" name="status">
+          <option value="todo">To Do</option>
+          <option value="in-progress">In Progress</option>
+          <option value="finished">Finished</option>
+        </select>
+      </label>
+      <div class="buttons">
+        <button type="submit" class="submit-button">Add Task</button>
+        <button type="button" class="cancel-button" (click)="onClose()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
