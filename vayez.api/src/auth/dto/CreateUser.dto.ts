@@ -1,5 +1,4 @@
 import { IsBoolean, IsEmail, IsNotEmpty, IsString } from 'class-validator';
-import { Role } from '../Schemas/role.schema';
 
 export class CreateUserDto {
   @IsString()
@@ -8,7 +7,7 @@ export class CreateUserDto {
 
   @IsString()
   @IsNotEmpty()
-  LastName: string;
+  lastName: string;
 
   @IsEmail()
   @IsNotEmpty()

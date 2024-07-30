@@ -7,7 +7,6 @@ import { JwtModule } from '@nestjs/jwt';
 import config from './config/config';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { MailModule } from './mail/mail.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -31,7 +30,6 @@ import { MailModule } from './mail/mail.module';
       inject: [ConfigService],
     }),
     AuthModule,
-    MailModule,
   ],
   controllers: [AppController],
   providers: [AppService, MailService],
