@@ -1,0 +1,5 @@
+<div class="column">
+    <h2>{{ column.name }}</h2>
+    <app-task *ngFor="let task of column.tasks" [task]="task"></app-task>
+  </div>
+  

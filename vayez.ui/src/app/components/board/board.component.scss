@@ -1,0 +1,37 @@
+.board-container {
+  position: relative;
+}
+
+.add-task-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-task-button:hover {
+  background-color: #0056b3;
+}
+
+.board {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px; // Adjust this if needed
+}
+
+.column {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.task {
+  background-color: #f1f1f1;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}

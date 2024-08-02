@@ -1,0 +1,36 @@
+<div class="board">
+  <button class="add-task-button" (click)="showAddTaskPopup = true">Add Task</button>
+  <div class="column">
+    <h2>To Do</h2>
+    <div *ngFor="let task of tasks['todo']">
+      <div class="task">
+        <h3>{{ task.title }}</h3>
+        <p>{{ task.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <h2>In Progress</h2>
+    <div *ngFor="let task of tasks['in-progress']">
+      <div class="task">
+        <h3>{{ task.title }}</h3>
+        <p>{{ task.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <h2>Finished</h2>
+    <div *ngFor="let task of tasks['finished']">
+      <div class="task">
+        <h3>{{ task.title }}</h3>
+        <p>{{ task.description }}</p>
+      </div>
+    </div>
+  </div>
+  
+ 
+
+  <app-add-task *ngIf="showAddTaskPopup" (closeEvent)="handleClose()"></app-add-task>
+</div>
